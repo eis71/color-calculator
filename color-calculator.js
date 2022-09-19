@@ -5,32 +5,44 @@ let userInterface = String(prompt("Welcome to Color Calculator. Please input `co
 if (userInterface === "combine"){
     let color1 = String(prompt("Please input the first color: ")).toLowerCase();
     let color2 = String(prompt("Please input the second color: ")).toLowerCase();
-    if (color1 === "red" && color2 === "blue"){
-        console.log("This combination creates Purple.");
-    } else if ( color1 === "blue" && color2 === "red"){
-        console.log("This combination creates Purple.");
-    } else if ( color1 === "yellow" && color2 === "red"){
-        console.log("This combination creates Orange.");
-    } else if ( color1 === "red" && color2 === "yellow"){
-        console.log("This combination creates Orange.");
-    } else if ( color1 === "blue" && color2 === "yellow"){
-        console.log("This combination creates Green.");
-    } else if ( color1 === "yellow" && color2 === "blue"){
-        console.log("This combination creates Green.");
-    } else { 
-        console.log("ERROR! INVALID COLOR COMBINATION!")
+    let output = String();
+    let fubar = false;
+    if ((color1 === "red" || color1 === "blue") && (color2 === "blue" || color2 === "red")){
+        output = "Purple";
+    } else if ((color1 === "yellow" || color1 === "red") && (color2 === "red" || color2 === "yellow")){
+        output = "Orange";
+    } else if ((color1 === "yellow" || color1 === "blue") && (color2 === "blue" || color2 === "yellow")){
+        output = "Green";
+    } else {  
+        fubar = true;
+        console.log("ERROR! INVALID COLOR COMBINATION!");
+    }
+    
+    if (fubar === false){
+        console.log(`This combination creates ${output}.`);
     }
 }
 
-if (userInterface === "deconstruct"){
+else if (userInterface === "deconstruct"){
     let color3 = String(prompt("Please input the color you want to deconstruct: ")).toLowerCase();
+    let output = String();
+    let fubar = false;
     if (color3 === "green"){
-        console.log("The color green breaks down into Blue and Yellow.");
+        output = "Blue and Yellow";
     } else if (color3 === "purple"){
-        console.log("The color Purple breaks down into Blue and Red.");
+        output = "Red and Blue";
     } else if (color3 === "orange"){
-        console.log("The color Orange breaks down into Red and Yellow.");
+        output = "Red and Yellow";
     } else {
+        fubar = true;
         console.log("ERROR! INVALID COLOR CHOICE!");
+    } 
+     
+    if (fubar === false){    
+     console.log(`This color breaks down into ${output}.`);
     }
+}
+
+else {
+    console.log("ERROR! INVALID INPUT!");
 }
