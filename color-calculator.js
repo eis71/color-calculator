@@ -7,11 +7,11 @@ if (userInterface === "combine"){
     let color2 = String(prompt("Please input the second color: ")).toLowerCase();
     let output = String();
     let fubar = false;
-    if ((color1 === "red" || color1 === "blue") && (color2 === "blue" || color2 === "red")){
+    if ((color1 === "red" && color2 === "blue") || (color1 === "blue" && color2 === "red")){
         output = "Purple";
-    } else if ((color1 === "yellow" || color1 === "red") && (color2 === "red" || color2 === "yellow")){
+    } else if ((color1 === "yellow" && color2 === "red") || (color1 === "red" && color2 === "yellow")){
         output = "Orange";
-    } else if ((color1 === "yellow" || color1 === "blue") && (color2 === "blue" || color2 === "yellow")){
+    } else if ((color1 === "yellow" && color2 === "blue") || (color1 === "blue" && color2 === "yellow")){
         output = "Green";
     } else {  
         fubar = true;
